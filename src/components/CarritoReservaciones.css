@@ -1,0 +1,36 @@
+.carrito-container {
+    padding: 20px;
+  }
+  
+  .reservaciones-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .reservacion-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .eliminar-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pago-button {
+    background-color: green;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

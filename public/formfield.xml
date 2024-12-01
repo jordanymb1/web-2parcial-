@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formfields>
+    <field>
+        <label>Identification Number</label>
+        <type>text</type>
+        <id>identification</id>
+        <placeholder>Enter your identification number</placeholder>
+    </field>
+    <field>
+        <label>Password</label>
+        <type>password</type>
+        <id>password</id>
+        <placeholder>Enter your password</placeholder>
+    </field>
+    <button>
+        <type>submit</type>
+        <label>Login</label>
+    </button>
+</formfields>

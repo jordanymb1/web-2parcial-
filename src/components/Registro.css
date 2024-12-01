@@ -1,0 +1,150 @@
+/* Contenedor del formulario de registro */
+.registro-container {
+  background-image: url('media/registrofondo.jpeg'); /* Asegúrate de cambiar esta ruta */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Card que contiene el formulario */
+.registro-card {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra más intensa */
+  width: 100%;
+  max-width: 550px;
+  text-align: center;
+  transform: scale(0.98);
+  animation: fadeIn 0.8s ease-in-out; /* Animación para la card */
+  -webkit-backdrop-filter: blur(10px); /* Prefijo para Safari 9+ y Safari en iOS */
+  backdrop-filter: blur(10px); /* Fondo desenfocado */
+}
+
+/* Animación de aparición para la card */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Estilo para el encabezado */
+.registro-card h1 {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 28px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: linear-gradient(to left, #6c5ce7, #a29bfe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Estilo para los campos de entrada y el select */
+.registro-card form input,
+.registro-card form select {
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+/* Efecto de animación cuando se hace foco en los campos */
+.registro-card form input:focus,
+.registro-card form select:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 8px rgba(108, 92, 227, 0.8);
+  outline: none;
+  background-color: #fff;
+}
+
+/* Estilo para los labels */
+.registro-card label {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Estilo para el botón de enviar */
+.registro-card button {
+  width: 100%;
+  padding: 15px;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+}
+
+/* Efecto de hover para el botón */
+.registro-card button:hover {
+  background-color: #5e54d4;
+  transform: translateY(-3px);
+}
+
+/* Animación para los campos de texto */
+.registro-card input,
+.registro-card select,
+.registro-card button {
+  animation: fieldAnimation 1s ease-out;
+}
+
+/* Animación de los campos de formulario */
+@keyframes fieldAnimation {
+  0% {
+      opacity: 0;
+      transform: translateX(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+/* Estilo para los bordes de los campos de formulario */
+.registro-card form div {
+  position: relative;
+}
+
+/* Animación de los bordes de los inputs cuando están vacíos */
+.registro-card form input:valid,
+.registro-card form select:valid {
+  border-color: #27ae60; /* Verde cuando válido */
+}
+
+.registro-card form input:invalid,
+.registro-card form select:invalid {
+  border-color: #e74c3c; /* Rojo cuando inválido */
+}
+
+/* Estilo para los campos con iconos (si agregas iconos) */
+.registro-card input[type="text"],
+.registro-card input[type="email"],
+.registro-card input[type="password"] {
+  padding-left: 40px; /* Para dejar espacio para los iconos */
+}

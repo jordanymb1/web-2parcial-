@@ -1,0 +1,54 @@
+/* Header.css */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+  color: white;
+}
+
+.header-logo h2 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.header-link:hover {
+  color: #0073e6; /* Cambiar a un color al pasar el mouse */
+}
+
+.header-link:focus {
+  outline: none;
+}
+
+.header-nav span {
+  font-size: 1.1em;
+  margin-left: 15px;
+}
+
+.header-nav button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-left: 20px;
+}
+
+.header-nav button:hover {
+  color: #0073e6;
+}

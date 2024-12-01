@@ -1,0 +1,80 @@
+/* Politica.css */
+
+.politica-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: #f8f9fa;
+  }
+  
+  .politica-sidebar {
+    width: 25%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .politica-sidebar h2 {
+    font-size: 1.8em;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .list-group {
+    padding-left: 0;
+  }
+  
+  .list-group-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .nav-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  .politica-content {
+    width: 70%;
+    padding-left: 30px;
+  }
+  
+  .content-section {
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content-section h3 {
+    font-size: 1.8em;
+    color: #343a40;
+    margin-bottom: 15px;
+  }
+  
+  .content-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .content-section p strong {
+    font-weight: bold;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  

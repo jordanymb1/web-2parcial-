@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "label": "Nombre Completo",
+      "type": "text",
+      "name": "nombreCompleto",
+      "placeholder": "Ingresa tu nombre completo",
+      "required": true
+    },
+    {
+      "id": 2,
+      "label": "Número de Identificación",
+      "type": "text",
+      "name": "numeroIdentificacion",
+      "placeholder": "Ingresa tu número de identificación",
+      "required": true
+    },
+    {
+      "id": 3,
+      "label": "Correo Electrónico Institucional",
+      "type": "email",
+      "name": "correoInstitucional",
+      "placeholder": "Ingresa tu correo institucional",
+      "required": true
+    },
+    {
+      "id": 4,
+      "label": "Teléfono de Contacto",
+      "type": "text",
+      "name": "telefonoContacto",
+      "placeholder": "Ingresa tu teléfono de contacto",
+      "required": true
+    },
+    {
+      "id": 5,
+      "label": "Fecha de Nacimiento",
+      "type": "date",
+      "name": "fechaNacimiento",
+      "placeholder": "dd/mm/aaaa",
+      "required": true
+    },
+    {
+      "id": 6,
+      "label": "Carrera",
+      "type": "select",
+      "name": "carrera",
+      "options": ["Ingeniería de Sistemas", "Derecho", "Medicina", "Arquitectura"],
+      "placeholder": "Seleccione una carrera",
+      "required": true
+    },
+    {
+      "id": 7,
+      "label": "Contraseña",
+      "type": "password",
+      "name": "contrasena",
+      "placeholder": "Ingresa tu contraseña",
+      "required": true
+    },
+    {
+      "id": 8,
+      "label": "Preferencia de Habitación (opcional)",
+      "type": "text",
+      "name": "preferenciaHabitacion",
+      "placeholder": "Ingresa tu preferencia de habitación",
+      "required": false
+    }
+  ]
+  

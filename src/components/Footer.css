@@ -1,0 +1,18 @@
+/* Footer.css */
+.footer {
+    background-color: #333; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    text-align: center; /* Centrado de texto */
+    padding: 10px 0; /* Espaciado superior e inferior */
+    position: fixed; /* Fijo en la parte inferior */
+    bottom: 0; /* Alineación con la parte inferior de la página */
+    left: 0; /* Alineación con el borde izquierdo */
+    width: 100%; /* Ancho completo de la página */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  }
+  
+  body {
+    margin-bottom: 40px; /* Deja espacio suficiente para el footer */
+  }
+  

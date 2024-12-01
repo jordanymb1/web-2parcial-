@@ -1,0 +1,41 @@
+/* StudentPanel.css */
+#student-panel {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  #welcome-message {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #student-info p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  #student-info strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  #student-info span {
+    color: #777;
+  }
+  
+  #student-info p + p {
+    margin-top: 10px;
+  }
+  
+  #student-info p:last-child {
+    margin-bottom: 0;
+  }
+  

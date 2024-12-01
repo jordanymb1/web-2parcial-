@@ -1,0 +1,83 @@
+/* General Styles */
+#admin-panel-container {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+    color: #333;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-panel-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #4a90e2;
+    margin-bottom: 20px;
+  }
+  
+  #usuarios-section,
+  #reservas-section {
+    margin-bottom: 30px;
+  }
+  
+  .admin-section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .admin-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .usuario-item {
+    background-color: #e3f2fd; /* Color específico para usuarios */
+  }
+  
+  .reserva-item {
+    background-color: #fce4ec; /* Color específico para reservas */
+  }
+  
+  .admin-action-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .eliminar-usuario-btn {
+    background-color: #e57373;
+    color: white;
+  }
+  
+  .eliminar-reserva-btn {
+    background-color: #f06292;
+    color: white;
+  }
+  
+  .admin-action-button:hover {
+    opacity: 0.8;
+  }
+  
+  .admin-empty-message {
+    text-align: center;
+    color: #999;
+    font-size: 1rem;
+  }
+  
