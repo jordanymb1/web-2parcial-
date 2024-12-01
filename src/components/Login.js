@@ -3,23 +3,28 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [correoInstitucional, setCorreoInstitucional] = useState('');
+  const [contrasena, setContrasena] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     // Lógica de autenticación
-    if (email === 'admin@gmail.com' && password === 'admin123') {
-      localStorage.setItem('loggedInUser', JSON.stringify({ email, role: 'admin' }));
+    if (correoInstitucional === 'admin@gmail.com' && contrasena === 'admin123') {
+      localStorage.setItem('loggedInUser', JSON.stringify({ correoInstitucional, role: 'admin' }));
       navigate('/admin');
     } else {
       const users = JSON.parse(localStorage.getItem('users')) || [];
-      const user = users.find((user) => user.email === email && user.password === password);
+      
+      // Buscar usuario con el correo y contraseña registrados
+      const user = users.find(
+        (user) => user.correoInstitucional === correoInstitucional && user.contrasena === contrasena
+      );
+      
       if (user) {
         localStorage.setItem('loggedInUser', JSON.stringify(user));
-        navigate('/');
+        navigate('/'); // Redirigir a la página principal o a donde desees
       } else {
         alert('Credenciales incorrectas');
       }
@@ -32,24 +37,24 @@ const Login = () => {
         <h1>Iniciar Sesión</h1>
         <form onSubmit={handleLogin}>
           <div className="input-group">
-            <label htmlFor="email">Correo:</label>
+            <label htmlFor="correoInstitucional">Correo:</label>
             <input
               type="email"
-              id="email"
+              id="correoInstitucional"
               className="input-field"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={correoInstitucional}
+              onChange={(e) => setCorreoInstitucional(e.target.value)}
               required
             />
           </div>
           <div className="input-group">
-            <label htmlFor="password">Contraseña:</label>
+            <label htmlFor="contrasena">Contraseña:</label>
             <input
               type="password"
-              id="password"
+              id="contrasena"
               className="input-field"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={contrasena}
+              onChange={(e) => setContrasena(e.target.value)}
               required
             />
           </div>
