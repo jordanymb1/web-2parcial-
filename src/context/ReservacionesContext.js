@@ -68,8 +68,48 @@ export const ReservacionesProvider = ({ children }) => {
     },
   ]);
 
+  const reservarHabitacion = (residenciaId, habitacionId) => {
+    setResidencias((prevResidencias) =>
+      prevResidencias.map((residencia) => {
+        if (residencia.id === residenciaId) {
+          return {
+            ...residencia,
+            habitaciones: residencia.habitaciones.map((habitacion) =>
+              habitacion.id === habitacionId
+                ? { ...habitacion, disponible: false }
+                : habitacion
+            ),
+          };
+        }
+        return residencia;
+      })
+    );
+
+    const habitacionReservada = residencias
+      .find((r) => r.id === residenciaId)
+      .habitaciones.find((h) => h.id === habitacionId);
+
+    setCarrito([...carrito, habitacionReservada]);
+  };
+
+  // Función para procesar el pago
+  const procederPago = (datosPago) => {
+    // Aquí puedes agregar la lógica del pago, como conectarte a una pasarela de pago real
+    console.log('Procesando pago...', datosPago);
+    alert('Pago realizado con éxito');
+    // Limpiar el carrito después de realizar el pago
+    setCarrito([]);
+  };
+
   return (
-    <ReservacionesContext.Provider value={{ residencias, carrito }}>
+    <ReservacionesContext.Provider
+      value={{
+        residencias,
+        carrito,
+        reservarHabitacion,
+        procederPago, // Exponemos la función procederPago
+      }}
+    >
       {children}
     </ReservacionesContext.Provider>
   );
