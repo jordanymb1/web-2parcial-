@@ -1,6 +1,6 @@
-// En CarritoReservaciones.js
+// src/components/CarritoReservaciones.js
 import React, { useState } from 'react';
-import { useReservaciones } from '../context/ReservacionesContext'; // Asegúrate de tener este contexto
+import { useReservaciones } from '../context/ReservacionesContext';
 import { useNavigate } from 'react-router-dom';
 
 const CarritoReservaciones = () => {
@@ -30,7 +30,7 @@ const CarritoReservaciones = () => {
       return;
     }
   
-    procederPago(datosPago);
+    procederPago(datosPago);  // Llamamos a procederPago
   
     const reserva = {
       residencia: carrito[0].nombreResidencia,
@@ -48,9 +48,8 @@ const CarritoReservaciones = () => {
     // Guardar el array actualizado de reservas en el localStorage
     localStorage.setItem('reservas', JSON.stringify(reservasGuardadas));
   
-    navigate('/');
+    navigate('/');  // Redirigir al inicio después de procesar el pago
   };
-  
 
   return (
     <div>
@@ -116,4 +115,4 @@ const CarritoReservaciones = () => {
   );
 };
 
-export default CarritoReservaciones;  // Asegúrate de que el componente se exporte correctamente.
+export default CarritoReservaciones;
