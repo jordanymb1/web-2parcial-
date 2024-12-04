@@ -10,30 +10,91 @@ function Registro() {
     }, {})
   );
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    // Validar el campo en tiempo real
+    validateField(name, value);
+  };
+
+  const validateField = (name, value) => {
+    let error = '';
+
+    // Validaciones específicas por campo
+    switch (name) {
+      case 'nombreCompleto':
+        if (!/^[a-zA-Z\s]+$/.test(value)) {
+          error = 'El nombre solo debe contener letras y espacios.';
+        }
+        break;
+      case 'numeroIdentificacion':
+        if (!/^\d+$/.test(value)) {
+          error = 'El número de identificación solo debe contener números.';
+        } else if (value.length < 10 || value.length > 13) {
+          error = 'El número de identificación debe tener entre 10 y 13 dígitos.';
+        }
+        break;
+      case 'correoInstitucional':
+        if (
+          !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
+        ) {
+          error = 'El correo electrónico no tiene un formato válido.';
+        }
+        break;
+      case 'telefonoContacto':
+        if (!/^\d{10}$/.test(value)) {
+          error = 'El número de teléfono debe tener 10 dígitos.';
+        }
+        break;
+      case 'fechaNacimiento':
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+          error = 'La fecha debe estar en formato AAAA-MM-DD.';
+        }
+        break;
+      case 'contrasena':
+        if (value.length < 6) {
+          error = 'La contraseña debe tener al menos 6 caracteres.';
+        }
+        break;
+      case 'preferenciaHabitacion':
+        if (!value) {
+          error = 'Debe seleccionar una preferencia de habitación.';
+        }
+        break;
+      default:
+        break;
+    }
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    formFields.forEach((field) => {
+      const value = formData[field.name];
+      validateField(field.name, value);
+      if (!value.trim()) {
+        newErrors[field.name] = 'Este campo es obligatorio.';
+      }
+    });
+    setErrors(newErrors);
+    return Object.values(newErrors).every((error) => !error);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Obtener usuarios guardados previamente desde localStorage
+    if (!validateForm()) {
+      alert('Por favor corrige los errores en el formulario.');
+      return;
+    }
+
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-
-    // Asegurarse de que los campos no sean undefined antes de aplicar trim()
-    const nombreCompleto = formData.nombreCompleto ? formData.nombreCompleto.trim() : '';
-    const numeroIdentificacion = formData.numeroIdentificacion ? formData.numeroIdentificacion.trim() : '';
-    const correoInstitucional = formData.correoInstitucional ? formData.correoInstitucional.trim() : '';
-    const telefonoContacto = formData.telefonoContacto ? formData.telefonoContacto.trim() : '';
-    const fechaNacimiento = formData.fechaNacimiento ? formData.fechaNacimiento.trim() : '';
-    const carrera = formData.carrera ? formData.carrera.trim() : '';
-    const contrasena = formData.contrasena ? formData.contrasena.trim() : '';
-    const preferenciaHabitacion = formData.preferenciaHabitacion ? formData.preferenciaHabitacion.trim() : '';
-
-    // Verificar si el número de identificación ya está registrado
     const existingUser = storedUsers.find(
-      (user) => user.numeroIdentificacion.trim() === numeroIdentificacion
+      (user) => user.numeroIdentificacion.trim() === formData.numeroIdentificacion.trim()
     );
 
     if (existingUser) {
@@ -41,24 +102,12 @@ function Registro() {
       return;
     }
 
-    // Guardar el nuevo usuario
-    const newUser = {
-      nombreCompleto,
-      numeroIdentificacion,
-      correoInstitucional,
-      telefonoContacto,
-      fechaNacimiento,
-      carrera,
-      contrasena,
-      preferenciaHabitacion,
-    };
-
+    const newUser = { ...formData };
     storedUsers.push(newUser);
     localStorage.setItem('users', JSON.stringify(storedUsers));
 
     alert('Usuario registrado exitosamente.');
 
-    // Reiniciar formulario
     setFormData(
       formFields.reduce((acc, field) => {
         acc[field.name] = '';
@@ -73,7 +122,7 @@ function Registro() {
         <h1>Formulario de Registro</h1>
         <form onSubmit={handleSubmit}>
           {formFields.map((field) => (
-            <div key={field.id}>
+            <div key={field.id} className="form-group">
               <label>{field.label}</label>
               {field.type === 'select' ? (
                 <select
@@ -98,6 +147,9 @@ function Registro() {
                   onChange={handleChange}
                   required={field.required}
                 />
+              )}
+              {errors[field.name] && (
+                <span className="error-message">{errors[field.name]}</span>
               )}
             </div>
           ))}
